@@ -46,5 +46,4 @@ def buscar_contacto():
 def main():
     menu()
     print(menu())
-
 main()
