@@ -19,6 +19,17 @@ def menu():
     ))
     return opcion
 
+def agregar_contacto():
+    print("===1. Agregar Contacto===")
+    contacto={'Nombre:':'',"Teléfono:":"","Email:":""}
+    contacto["Nombre:"]= input("Nombre: ").title().strip()
+    contacto["Teléfono:"] = int(input("Teléfono: "))
+    contacto["Email:"] = input("Email: ").lower().strip()
+    contactos.append(contacto)
+    print("Contacto agregado con éxito.")
+
+
+
 def main():
     menu()
     print(menu())
