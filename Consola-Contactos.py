@@ -41,9 +41,17 @@ def buscar_contacto():
         else:
             print("Contacto no encontrado.")
 
+def listar_contactos():
+    print("===3. Listar contactos===")
+    print()
+    for i in contactos:
+        for c in i:
+            print(f"{c} {i[c]}")
+        print()
 
 
 def main():
     menu()
     print(menu())
+
 main()
