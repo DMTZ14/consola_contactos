@@ -28,6 +28,19 @@ def agregar_contacto():
     contactos.append(contacto)
     print("Contacto agregado con éxito.")
 
+def buscar_contacto():
+    print("===2. Buscar Contacto===")
+    print()
+    busqueda= input("Escribe el nombre a buscar: ").title().strip()
+    for i in contactos:
+        if busqueda==i["Nombre:"]:
+            print(i["Nombre:"])
+            print(i["Teléfono:"])
+            print(i["Email:"])
+            break
+        else:
+            print("Contacto no encontrado.")
+
 
 
 def main():
