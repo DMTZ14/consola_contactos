@@ -19,6 +19,7 @@ def menu():
         "5. Salir\n"
         "Selecciona una opción: "
     ))
+    print()
     return opcion
 
 def agregar_contacto():
@@ -75,3 +76,4 @@ def main():
 
 
 
+main()
