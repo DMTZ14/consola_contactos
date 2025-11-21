@@ -25,9 +25,25 @@ def menu():
 def agregar_contacto():
     print("===1. Agregar Contacto===")
     contacto={'Nombre:':'',"Teléfono:":"","Email:":""}
-    contacto["Nombre:"]= input("Nombre: ").title().strip()
-    contacto["Teléfono:"] = int(input("Teléfono: "))
-    contacto["Email:"] = input("Email: ").lower().strip()
+    while True:
+        contacto["Nombre:"]= input("Nombre: ").title().strip()
+        if len(contacto["Nombre:"])<=0:
+            print("Ningún valor ingresado. Intente de nuevo")
+        else:
+            break
+    while True:
+        try:
+            contacto["Teléfono:"] = int(input("Teléfono: "))
+            break
+        except ValueError:
+            print("Favor de ingresar únicamente números. Intente de nuevo")
+
+    while True:
+        contacto["Email:"] = input("Email: ").lower().strip()
+        if "@" in contacto["Email:"]:
+            break
+        else:
+            print("No es un correo válido. Intente de nuevo. ")
     contactos.append(contacto)
     print("Contacto agregado con éxito.")
 
@@ -44,9 +60,10 @@ def buscar_contacto():
         else:
             print("Contacto no encontrado.")
 
-def listar_contactos():
+def listar_contactos(contactos):
     print("===3. Listar contactos===")
     print()
+    contactos = sorted(contactos, key=lambda c: c["Nombre:"])
     for i in contactos:
         for c in i:
             print(f"{c} {i[c]}")
@@ -67,13 +84,10 @@ def main():
         elif opcion == 2:
             buscar_contacto()
         elif opcion == 3:
-            listar_contactos()
+            listar_contactos(contactos)
         elif opcion ==4:
             eliminar_contacto()
         elif opcion == 5:
             print("Gracias por usar el Gestor de Contactos")
             break
 
-
-
-main()
