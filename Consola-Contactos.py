@@ -6,6 +6,8 @@ listar_contactos()
 eliminar_contacto(contactos)
 menu()
 '''
+from operator import index
+
 contactos= [{'Nombre:': 'Diego', 'Teléfono:': 3319750015, 'Email:': 'diegocerva14@gmail.com'},{'Nombre:': 'Claudia', 'Teléfono:': 33170, 'Email:': 'claus@gmail.com'}]
 def menu():
     opcion=int(input(
@@ -49,6 +51,12 @@ def listar_contactos():
             print(f"{c} {i[c]}")
         print()
 
+def eliminar_contacto():
+    contacto_eliminar = input("Escribe el nombre a eliminar: ").strip().title()
+    for i in contactos:
+        if contacto_eliminar == i["Nombre:"]:
+            contactos.pop(contactos.index(i))
+            print("Contacto eliminado")
 
 def main():
     while True:
@@ -59,9 +67,11 @@ def main():
             buscar_contacto()
         elif opcion == 3:
             listar_contactos()
+        elif opcion ==4:
+            eliminar_contacto()
         elif opcion == 5:
             print("Gracias por usar el Gestor de Contactos")
             break
 
 
-main()
+
