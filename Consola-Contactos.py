@@ -51,7 +51,17 @@ def listar_contactos():
 
 
 def main():
-    menu()
-    print(menu())
+    while True:
+        opcion=menu()
+        if opcion == 1:
+            agregar_contacto()
+        elif opcion == 2:
+            buscar_contacto()
+        elif opcion == 3:
+            listar_contactos()
+        elif opcion == 5:
+            print("Gracias por usar el Gestor de Contactos")
+            break
+
 
 main()
